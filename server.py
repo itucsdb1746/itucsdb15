@@ -1,3 +1,6 @@
+from initialize_db import initialize_db_function
+
+
 import datetime
 import json
 import os
@@ -29,24 +32,13 @@ def home_page():
     now = datetime.datetime.now()
     return render_template('home.html', current_time=now.ctime())
 
-
 @app.route('/initdb')
 def initialize_database():
     with dbapi2.connect(app.config['dsn']) as connection:
         cursor = connection.cursor()
-
-        query = """DROP TABLE IF EXISTS COUNTER"""
-        cursor.execute(query)
-
-        query = """CREATE TABLE COUNTER (N INTEGER)"""
-        cursor.execute(query)
-
-        query = """INSERT INTO COUNTER (N) VALUES (0)"""
-        cursor.execute(query)
-
+        initialize_db_function(cursor)
         connection.commit()
     return redirect(url_for('home_page'))
-
 
 @app.route('/count')
 def counter_page():
