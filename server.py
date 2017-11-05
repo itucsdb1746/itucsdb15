@@ -1,19 +1,35 @@
-from initialize_db import initialize_db_function
-
-
 import datetime
 import json
 import os
-import psycopg2 as dbapi2
 import re
 
-from flask import Flask
-from flask import render_template
+import psycopg2 as dbapi2
+
 from flask import redirect
+from flask import Flask
+from flask import current_app
+from flask import render_template, url_for
+from flask.globals import session, request
+from flask.templating import render_template
+
+from flask.blueprints import Blueprint
 from flask.helpers import url_for
+
+from werkzeug import redirect
+from werkzeug.debug.tbtools import render_console_html
+
+
+from initialize_db import initialize_db_function
+
+
 
 
 app = Flask(__name__)
+
+
+
+
+
 
 def get_elephantsql_dsn(vcap_services):
     """Returns the data source name for ElephantSQL."""
@@ -26,8 +42,8 @@ def get_elephantsql_dsn(vcap_services):
     return dsn
 
 
-
 @app.route('/')
+@app.route('/home')
 def home_page():
     now = datetime.datetime.now()
     return render_template('home.html', current_time=now.ctime())
@@ -54,7 +70,81 @@ def counter_page():
         count = cursor.fetchone()[0]
     return "This page was accessed %d times." % count
 
+
+
+@app.route('/signUp', methods=['GET', 'POST'])
+def signUp():
+
+    if request.method == 'POST':
+        userName = request.form['username']
+        userSurname = request.form['usersurname']
+        userEmail = request.form['useremail']
+        userPassword = request.form['userpassword']
+
+        with dbapi2.connect(current_app.config['dsn']) as connection:
+            cursor = connection.cursor()
+            query = """INSERT INTO users (userName, userSurname, userEmail, Password) VALUES (%s, %s, %s, %s) """
+            cursor.execute(query, (userName, userSurname, userEmail, userPassword))
+            connection.commit()
+            return redirect(url_for('profile'))
+
+    filename ='user/signUp.html'
+    return render_template(filename)
+
+
+@app.route('/login')
+def login():
+
+    filename = 'user/login.html'
+    return render_template(filename)
+
+@app.route('/profile', methods=['GET','POST'])
+def profile():
+
+    filename = 'user/profile.html'
+
+    if request.method == 'POST':
+        userEmail = request.form['useremail']
+        userPassword = request.form['userpassword']
+
+        with dbapi2.connect(current_app.config['dsn']) as connection:
+            cursor = connection.cursor()
+            cursor.execute("SELECT * FROM users WHERE userEmail = %s AND password = %s", (userEmail, userPassword))
+            connection.commit()
+
+            result = cursor.fetchone();
+
+            if result:
+                session['role'] = result[6]
+                session['id'] = result[0]
+                session['name'] = result[1]
+                session['surname'] = result[2]
+                session['email'] = result[3]
+                return render_template(filename)
+
+    elif request.method == 'GET':
+        session['role'] = ""
+        session['id'] = 0
+        session['name'] = ""
+        session['surname'] = ""
+        session['email'] = ""
+
+        filename = 'home.html'
+        return render_template(filename)
+
+    return '<!DOCTYPE html><html><body><h1>Hatali e-posta ya da sifre</h1></body></html>'
+
+
+
+
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('pageNotFound.html'), 404
+
+
 if __name__ == '__main__':
+    app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
     VCAP_APP_PORT = os.getenv('VCAP_APP_PORT')
     if VCAP_APP_PORT is not None:
         port, debug = int(VCAP_APP_PORT), False

@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="static/css/loginSignUp.css" type="text/css">
+		<meta charset="UTF-8">
+	</head>
+
+	<body>
+
+		<div class="login-page">
+			<div class="form">
+				<form action="/signUp" method="post" id="adduser" class="signUp-form">
+					<input type="text" placeholder="Ad" name="username" value="{{ username }}"/>
+					<input type="text" placeholder="Soyad" name="usersurname" value="{{ usersurname }}"/>
+					<input type="text" placeholder="E-mail" name="useremail" value="{{ useremail }}"/>
+					<input type="password" placeholder="password" name="userpassword" value="{{ userpassword }}"/>
+					<button onclick="location.href = '{{ url_for('signUp') }}'" type="submit" value="Submit">kayit ol</button>
+					<p class="message">Kullanıcı hesabın varsa <a href="{{ url_for('login') }}">Giriş yap</a></p>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
+

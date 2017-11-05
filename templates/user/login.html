@@ -1,0 +1,19 @@
+<html>
+<head>
+	<link rel="stylesheet" href="static/css/loginSignUp.css" type="text/css">
+	<meta charset="UTF-8">
+</head>
+
+<body>
+	<div class="login-page">
+		<div class="form">
+			<form action="/profile" method="post" id="adduser" class="signIn-form">
+				<input type="text" placeholder="E-mail" name="useremail" value="{{ useremail }}"/>
+				<input type="password" placeholder="password" name="userpassword" value="{{ userpassword }}"/>
+				<button onclick="location.href = '{{ url_for('profile') }}'" type="submit" value="Submit">giriş</button>
+				<p class="message">Üye değil misin? <a href="{{ url_for('signUp') }}">Kullanıcı hesabı oluştur</a></p>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

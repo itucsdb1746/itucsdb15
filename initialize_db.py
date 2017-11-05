@@ -3,7 +3,7 @@ def initialize_db_function(cursor):
 #counter table definition
     cursor.execute("""DROP TABLE IF EXISTS COUNTER""")
     cursor.execute("""CREATE TABLE COUNTER (N INTEGER)""")
-    cursor.execute("""INSERT INTO COUNTER 👎 VALUES (0)""")
+    cursor.execute("""INSERT INTO COUNTER (N) VALUES (0)""")
 
 #users table definition
     cursor.execute("""DROP TABLE IF EXISTS users CASCADE""")
@@ -23,3 +23,8 @@ def initialize_db_function(cursor):
                                     VALUES('mehmet', 'yılmaz', 'yilmazmehmet@hotmail.com', '123456', '150', 'admin')""")
     cursor.execute("""INSERT INTO users (userName, userSurname, userEmail, password, userBalance, role)
                                     VALUES('ahmet', 'yılmaz', 'yilmazahmet@hotmail.com', '123456', '350', 'admin')""")
+    cursor.execute("""INSERT INTO users (userName, userSurname, userEmail, password, userBalance, role)
+                                    VALUES('ezgi', 'yılmaz', 'yilmazezgi@hotmail.com', 'qwerty', '450', 'admin')""")
+
+
+
