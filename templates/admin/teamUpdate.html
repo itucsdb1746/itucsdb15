@@ -1,0 +1,108 @@
+{% extends "admin/layout.html"%}
+{% block title %}Kullanıcılar{% endblock %}
+{% block content %}
+
+<head>
+	<meta charset = "utf-8">
+</head>
+
+
+
+  <!-- Example DataTables Card-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Data Table Example</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Ad</th>
+                  <th>Soyad</th>
+                  <th>Mail</th>
+                  <th>Şifre</th>
+                  <th>Para Miktarı</th>
+                  <th>Yetki</th>
+                  <th>İşlem</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>Ad</th>
+                  <th>Soyad</th>
+                  <th>Mail</th>
+                  <th>Şifre</th>
+                  <th>Para Miktarı</th>
+                  <th>Yetki</th>
+                  <th>İşlem</th>
+                </tr>
+              </tfoot>
+              <tbody>
+					{% for id, userName, userSurname, userEmail, password, userBalance, role in users%}
+						<tr>
+							<input type= "hidden" name = "id" value = "{{ id }}"></input>
+							<td> {{ userName }} </td>
+							<td> {{ userSurname }} </td>
+							<td> {{ userEmail }} </td>
+							<td> {{ password }} </td>
+							<td> {{ userBalance }} </td>
+							<td> {{ role }} </td>
+							<td>
+								<button onclick="location.href = '{{ url_for('userTableUpdate', id=id) }}'" type ="submit" class = "btn btn-success" value="{{id}}"> Düzenle</button>
+								<button onclick="location.href = '{{ url_for('userTableDelete', id=id) }}'" type ="submit" class = "btn btn-danger"> Sil </button>
+							</td>
+						</tr>
+					{% endfor %}
+
+					<tr id="add_row" style="display: none;">
+						<form action ="/userTable", method ="post", id ="AddUser">
+							<td><input class = "form-control input-sm" type="text" placeholder ="ad" name="userName">  </td>
+							<td><input class = "form-control input-sm" type="text" placeholder ="soyad" name="userSurname">  </td>
+							<td><input class = "form-control input-sm" type="text" placeholder ="mail" name="userEmail">  </td>
+							<td><input class = "form-control input-sm" type="text" placeholder ="şifre" name="userPassword">  </td>
+							<td><input class = "form-control input-sm" type="text" placeholder ="para miktarı" name="userBalance">  </td>
+							<td><input class = "form-control input-sm" type="text" placeholder ="yetki" name="userRole">  </td>
+							<td>
+								<div class = "btn-group-sm">
+									<button  type ="submit" form ="AddUser" class = "btn btn-primary" value = "Submit">Ekle  </button>
+									<button type ="button" onclick = "myCancelFunction()" class = "btn btn-danger">İptal  </button>
+								</div>
+							</td>
+						</form>
+					</tr>
+              </tbody>
+            </table>
+
+            <button id ="satir_ekle_btn" onclick = "myCreateFunction()" class="btn btn-primary btn-block">Yeni Kullanıcı Ekle</button>
+
+          </div>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+    </div>
+
+
+
+<script>
+function myCreateFunction()
+{
+	var result_style = document.getElementById('add_row').style;
+	result_style.display = 'table-row';
+	var button_style = document.getElementById('satir_ekle_btn').style;
+	button_style.display = 'none';
+}
+
+function myCancelFunction()
+{
+	var result_style = document.getElementById('add_row').style;
+	result_style.display = 'none';
+	$("#satir_ekle_btn").show();
+}
+</script>
+
+
+
+
+
+
+{% endblock %}

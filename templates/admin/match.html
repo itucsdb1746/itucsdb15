@@ -1,0 +1,112 @@
+{% extends "admin/layout.html"%}
+{% block title %}Maçlar{% endblock %}
+{% block content %}
+
+<head>
+	<meta charset = "utf-8">
+</head>
+
+
+
+  <!-- Example DataTables Card-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Data Table Example</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Saat</th>
+                  <th>Gün</th>
+                  <th>Ev Sahibi</th>
+                  <th>Ev S. Skor</th>
+                  <th>Misafir takım</th>
+                  <th>misafir T. Skor</th>
+                  <th>sonuç</th>
+                  <th>işlem</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>Saat</th>
+                  <th>Gün</th>
+                  <th>Ev Sahibi</th>
+                  <th>Ev S. Skor</th>
+                  <th>Misafir takım</th>
+                  <th>misafir T. Skor</th>
+                  <th>sonuç</th>
+                  <th>işlem</th>
+                </tr>
+              </tfoot>
+              <tbody>
+					{% for id, matchTime, matchDate, homeTeamId, homeTeamScore, guestTeam, guestTamScore, result in matches%}
+						<tr>
+							<input type= "hidden" name = "id" value = "{{ id }}"></input>
+							<td> {{ matchTime }} </td>
+							<td> {{ matchDate }} </td>
+							<td> {{ homeTeamId }} </td>
+							<td> {{ homeTeamScore }} </td>
+							<td> {{ guestTeam }} </td>
+							<td> {{ guestTamScore }} </td>
+							<td> {{ result }} </td>
+							<td>
+								<button onclick="location.href = '{{ url_for('matchTableUpdate', id=id) }}'" type ="submit" class = "btn btn-success" value="{{id}}"> Düzenle</button>
+								<button onclick="location.href = '{{ url_for('matchTableDelete', id=id) }}'" type ="submit" class = "btn btn-danger"> Sil </button>
+							</td>
+						</tr>
+					{% endfor %}
+
+					<tr id="add_row" style="display: none;">
+						<form action ="/matchTable", method ="post", id ="AddMatch">
+							<td><input class = "form-control input-sm" type="text" placeholder ="Saat" name="matchTime">  </td>
+							<td><input class = "form-control input-sm" type="text" placeholder ="Gün" name="matchDate">  </td>
+							<td><input class = "form-control input-sm" type="text" placeholder ="Ev Sahibi" name="homeTeamId">  </td>
+							<td><input class = "form-control input-sm" type="text" placeholder ="Ev S. Skor" name="homeTeamScore">  </td>
+							<td><input class = "form-control input-sm" type="text" placeholder ="Misafir takım" name="guestTeam">  </td>
+							<td><input class = "form-control input-sm" type="text" placeholder ="Misafir takım skor" name="guestTamScore">  </td>
+							<td><input class = "form-control input-sm" type="text" placeholder ="sonuç" name="result">  </td>
+							<td>
+								<div class = "btn-group-sm">
+									<button  type ="submit" form ="AddMatch" class = "btn btn-primary" value = "Submit">Ekle  </button>
+									<button type ="button" onclick = "myCancelFunction()" class = "btn btn-danger">İptal  </button>
+								</div>
+							</td>
+						</form>
+					</tr>
+              </tbody>
+            </table>
+
+            <button id ="satir_ekle_btn" onclick = "myCreateFunction()" class="btn btn-primary btn-block">Yeni Maç Ekle</button>
+
+          </div>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+    </div>
+
+
+
+<script>
+function myCreateFunction()
+{
+	var result_style = document.getElementById('add_row').style;
+	result_style.display = 'table-row';
+	var button_style = document.getElementById('satir_ekle_btn').style;
+	button_style.display = 'none';
+}
+
+function myCancelFunction()
+{
+	var result_style = document.getElementById('add_row').style;
+	result_style.display = 'none';
+	$("#satir_ekle_btn").show();
+}
+</script>
+
+
+
+
+
+
+{% endblock %}

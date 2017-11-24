@@ -1,0 +1,124 @@
+{% extends "admin/layout.html"%}
+{% block title %}Lig Durumları{% endblock %}
+{% block content %}
+
+<head>
+	<meta charset = "utf-8">
+</head>
+
+
+
+  <!-- Example DataTables Card-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Lig Durum Tablosu</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>lig adı</th>
+                  <th>takım adı</th>
+                  <th>Oynanan</th>
+                  <th>galiibiyet</th>
+                  <th>beraberlik</th>
+                  <th>yenilgi</th>
+                  <th>atılan gol</th>
+                  <th>yenilen gol</th>
+                  <th>Puan</th>
+                  <th>ülke</th>
+                  <th>İşlem</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>lig adı</th>
+                  <th>takım adı</th>
+                  <th>Oynanan</th>
+                  <th>galiibiyet</th>
+                  <th>beraberlik</th>
+                  <th>yenilgi</th>
+                  <th>atılan gol</th>
+                  <th>yenilen gol</th>
+                  <th>Puan</th>
+                  <th>ülke</th>
+                  <th>İşlem</th>
+                </tr>
+              </tfoot>
+              <tbody>
+					{% for id, leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country in leaguePositions %}
+						<tr>
+							<input type= "hidden" name = "id" value = "{{ id }}"></input>
+							<td> {{ leagueName }} </td>
+							<td> {{ teamName }} </td>
+							<td> {{ oynanan }} </td>
+							<td> {{ galibiyet }} </td>
+							<td> {{ beraberlik }} </td>
+							<td> {{ yenilgi }} </td>
+							<td> {{ atilanGol }} </td>
+							<td> {{ yenilenGol }} </td>
+							<td> {{ puan }} </td>
+							<td> {{ country }} </td>
+							<td>
+								<button onclick="location.href = '{{ url_for('leaguePositionTableUpdate', id=id) }}'" type ="submit" class = "btn btn-success" value="{{id}}"> Düzenle</button>
+								<button onclick="location.href = '{{ url_for('leaguePositionTableDelete', id=id) }}'" type ="submit" class = "btn btn-danger"> Sil </button>
+							</td>
+						</tr>
+					{% endfor %}
+
+					<tr id="add_row" style="display: none;">
+						<form action ="/leaguePositionTable", method ="post", id ="AddLeaguePosition">
+							<td><input class = "form-control input-sm" type="text" placeholder ="lig adı" name="leagueName">  </td>
+							<td><input class = "form-control input-sm" type="text" placeholder ="takım adı" name="teamName">  </td>
+							<td><input class = "form-control input-sm" type="text" placeholder ="o" name="oynanan">  </td>
+							<td><input class = "form-control input-sm" type="text" placeholder ="g" name="galibiyet">  </td>
+							<td><input class = "form-control input-sm" type="text" placeholder ="b" name="beraberlik">  </td>
+							<td><input class = "form-control input-sm" type="text" placeholder ="y" name="yenilgi">  </td>
+							<td><input class = "form-control input-sm" type="text" placeholder ="ag" name="atilanGol">  </td>
+							<td><input class = "form-control input-sm" type="text" placeholder ="yg" name="yenilenGol">  </td>
+							<td><input class = "form-control input-sm" type="text" placeholder ="puan" name="puan">  </td>
+							<td><input class = "form-control input-sm" type="text" placeholder ="ülke" name="country">  </td>
+							<td>
+								<div class = "btn-group-sm">
+									<button  type ="submit" form ="AddLeaguePosition" class = "btn btn-primary" value = "Submit">Ekle  </button>
+									<button type ="button" onclick = "myCancelFunction()" class = "btn btn-danger">İptal  </button>
+								</div>
+							</td>
+						</form>
+					</tr>
+              </tbody>
+            </table>
+
+            <button id ="satir_ekle_btn" onclick = "myCreateFunction()" class="btn btn-primary btn-block">Yeni Lig Durumu Ekle</button>
+
+          </div>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+    </div>
+
+
+
+<script>
+function myCreateFunction()
+{
+	var result_style = document.getElementById('add_row').style;
+	result_style.display = 'table-row';
+	var button_style = document.getElementById('satir_ekle_btn').style;
+	button_style.display = 'none';
+}
+
+function myCancelFunction()
+{
+	var result_style = document.getElementById('add_row').style;
+	result_style.display = 'none';
+	$("#satir_ekle_btn").show();
+}
+</script>
+
+
+
+
+
+
+{% endblock %}
