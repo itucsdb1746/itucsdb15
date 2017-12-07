@@ -27,6 +27,8 @@ def initialize_db_function(cursor):
                                     VALUES('ezgi', 'yılmaz', 'yilmazezgi@hotmail.com', 'qwerty', '450', 'admin')""")
     cursor.execute("""INSERT INTO users (userName, userSurname, userEmail, password, userBalance, role)
                                     VALUES('admin', 'yılmaz', 'admin@test.com', 'qwerty', '600', 'admin')""")
+    cursor.execute("""INSERT INTO users (userName, userSurname, userEmail, password, userBalance, role)
+                                    VALUES('test', 'yılmaz', 'test@test.com', 'qwerty', '600', 'user')""")
 
 #leagues table definition
     cursor.execute("""DROP TABLE IF EXISTS leagues CASCADE""")
@@ -113,7 +115,7 @@ def initialize_db_function(cursor):
     cursor.execute("""INSERT INTO teams (teamName, teamLeague, teamChampionsLeague, teamUefaLeague, teamCountry)
                                     VALUES('Nantes', '5', false, true, '5')""")
 
-#teams table definition
+#leaguesposition table definition
     cursor.execute("""DROP TABLE IF EXISTS leaguePosition CASCADE""")
     cursor.execute("""CREATE TABLE leaguePosition(
                         id SERIAL PRIMARY KEY NOT NULL,
@@ -128,7 +130,7 @@ def initialize_db_function(cursor):
                         puan integer,
                         country integer references leagues(id) ON DELETE RESTRICT ON UPDATE CASCADE)""")
 
-#teams table inserting data
+#leaguesposition table inserting data
     cursor.execute("""INSERT INTO leaguePosition (leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country)
                                     VALUES('1', '2', 12, 11, 1, 0, 33, 4, 34, '1')""")
     cursor.execute("""INSERT INTO leaguePosition (leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country)
@@ -141,48 +143,48 @@ def initialize_db_function(cursor):
                                     VALUES('1', '5', 12, 7, 1, 4, 14, 12, 22, '1')""")
 
     cursor.execute("""INSERT INTO leaguePosition (leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country)
-                                    VALUES('2', '2', 12, 11, 1, 0, 40, 7, 34, '2')""")
+                                    VALUES('2', '10', 12, 11, 1, 0, 40, 7, 34, '2')""")
     cursor.execute("""INSERT INTO leaguePosition (leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country)
-                                    VALUES('2', '3', 12, 8, 2, 2, 27, 6, 26, '2')""")
+                                    VALUES('2', '7', 12, 8, 2, 2, 27, 6, 26, '2')""")
     cursor.execute("""INSERT INTO leaguePosition (leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country)
-                                    VALUES('2', '1', 12, 8, 1, 3, 23, 10, 25, '2')""")
+                                    VALUES('2', '6', 12, 8, 1, 3, 23, 10, 25, '2')""")
     cursor.execute("""INSERT INTO leaguePosition (leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country)
-                                    VALUES('2', '4', 12, 7, 2, 3, 20, 9, 23, '2')""")
+                                    VALUES('2', '8', 12, 7, 2, 3, 20, 9, 23, '2')""")
     cursor.execute("""INSERT INTO leaguePosition (leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country)
-                                    VALUES('2', '5', 12, 6, 4, 2, 24, 17, 22, '2')""")
+                                    VALUES('2', '9', 12, 6, 4, 2, 24, 17, 22, '2')""")
 
     cursor.execute("""INSERT INTO leaguePosition (leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country)
-                                    VALUES('3', '2', 12, 8, 2, 2, 27, 14, 26, '3')""")
+                                    VALUES('3', '11', 12, 8, 2, 2, 27, 14, 26, '3')""")
     cursor.execute("""INSERT INTO leaguePosition (leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country)
-                                    VALUES('3', '3', 12, 8, 2, 2, 23, 14, 26, '3')""")
+                                    VALUES('3', '12', 12, 8, 2, 2, 23, 14, 26, '3')""")
     cursor.execute("""INSERT INTO leaguePosition (leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country)
-                                    VALUES('3', '1', 12, 6, 4, 2, 19, 12, 22, '3')""")
+                                    VALUES('3', '13', 12, 6, 4, 2, 19, 12, 22, '3')""")
     cursor.execute("""INSERT INTO leaguePosition (leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country)
-                                    VALUES('3', '4', 12, 6, 4, 2, 19, 14, 22, '3')""")
+                                    VALUES('3', '14', 12, 6, 4, 2, 19, 14, 22, '3')""")
     cursor.execute("""INSERT INTO leaguePosition (leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country)
-                                    VALUES('3', '5', 12, 5, 5, 2, 25, 17, 20, '3')""")
+                                    VALUES('3', '15', 12, 5, 5, 2, 25, 17, 20, '3')""")
 
     cursor.execute("""INSERT INTO leaguePosition (leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country)
-                                    VALUES('4', '1', 12, 9, 2, 1, 30, 8, 29, '4')""")
+                                    VALUES('4', '16', 12, 9, 2, 1, 30, 8, 29, '4')""")
     cursor.execute("""INSERT INTO leaguePosition (leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country)
-                                    VALUES('4', '2', 12, 7, 2, 3, 16, 10, 23, '4')""")
+                                    VALUES('4', '17', 12, 7, 2, 3, 16, 10, 23, '4')""")
     cursor.execute("""INSERT INTO leaguePosition (leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country)
-                                    VALUES('4', '3', 12, 7, 2, 3, 20, 15, 23, '4')""")
+                                    VALUES('4', '18', 12, 7, 2, 3, 20, 15, 23, '4')""")
     cursor.execute("""INSERT INTO leaguePosition (leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country)
-                                    VALUES('4', '4', 12, 6, 3, 3, 21, 21, 21, '4')""")
+                                    VALUES('4', '19', 12, 6, 3, 3, 21, 21, 21, '4')""")
     cursor.execute("""INSERT INTO leaguePosition (leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country)
-                                    VALUES('4', '5', 12, 6, 2, 4, 29, 16, 20, '4')""")
+                                    VALUES('4', '20', 12, 6, 2, 4, 29, 16, 20, '4')""")
 
     cursor.execute("""INSERT INTO leaguePosition (leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country)
-                                    VALUES('5', '1', 13, 11, 2, 0, 43, 9, 35, '5')""")
+                                    VALUES('5', '21', 13, 11, 2, 0, 43, 9, 35, '5')""")
     cursor.execute("""INSERT INTO leaguePosition (leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country)
-                                    VALUES('5', '2', 13, 9, 2, 2, 35, 13, 29, '5')""")
+                                    VALUES('5', '22', 13, 9, 2, 2, 35, 13, 29, '5')""")
     cursor.execute("""INSERT INTO leaguePosition (leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country)
-                                    VALUES('5', '3', 13, 7, 5, 1, 32, 15, 26, '5')""")
+                                    VALUES('5', '23', 13, 7, 5, 1, 32, 15, 26, '5')""")
     cursor.execute("""INSERT INTO leaguePosition (leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country)
-                                    VALUES('5', '4', 13, 7, 4, 2, 27, 18, 25, '5')""")
+                                    VALUES('5', '24', 13, 7, 4, 2, 27, 18, 25, '5')""")
     cursor.execute("""INSERT INTO leaguePosition (leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country)
-                                    VALUES('5', '5', 13, 7, 2, 4, 12, 13, 23, '5')""")
+                                    VALUES('5', '25', 13, 7, 2, 4, 12, 13, 23, '5')""")
 
 #match table definition
     cursor.execute("""DROP TABLE IF EXISTS match CASCADE""")
