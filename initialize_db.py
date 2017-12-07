@@ -29,6 +29,8 @@ def initialize_db_function(cursor):
                                     VALUES('admin', 'yılmaz', 'admin@test.com', 'qwerty', '600', 'admin')""")
     cursor.execute("""INSERT INTO users (userName, userSurname, userEmail, password, userBalance, role)
                                     VALUES('test', 'yılmaz', 'test@test.com', 'qwerty', '600', 'user')""")
+    cursor.execute("""INSERT INTO users (userName, userSurname, userEmail, password, userBalance, role)
+                                    VALUES('test', 'test', 'test@outlook.com', 'qwerty', '600', 'user')""")
 
 #leagues table definition
     cursor.execute("""DROP TABLE IF EXISTS leagues CASCADE""")
