@@ -53,6 +53,60 @@
 
 
 
+<div class="row">
+		<div class="panel panel-primary">
+
+			<div class="panel-heading">
+		    	<h1 class="panel-title">Bahis Yapılabilecek Maç Bilgileri</h1>
+			</div>
+
+			<div class="panel-body">
+				<table class="table">
+					<tbody>
+						<tr class = "info">
+							<th> Saat </th>
+							<th> Tarih </th>
+							<th> Ev Sahibi </th>
+							<th> Deplasman </th>
+						</tr>
+
+						{% for id, matchTime, matchDate, homeTeamId, homeTeamScore, guestTeam, guestTamScore, result in matches%}
+						<tr>
+							<input class ="hidden" name ="islem" value ="{{ id }}" />
+							<td> {{ matchTime }} </td>
+							<td> {{ matchDate }} </td>
+							<td> {{ homeTeamId }} </td>
+							<td> {{ guestTeam }} </td>
+						</tr>
+						{% endfor %}
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>bahis yapabilmek için üye olun</td>
+						</tr>
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+<!-- 	</div> -->
+</div>
+
+
+<h1>admin girişi için:</h1>
+<h2>mail: yilmazahmet@hotmail.com</h2>
+<h2>şifre: 123456</h2>
+
+<h1>user girişi için:</h1>
+<h2>mail:  test@test.com</h2>
+<h2>şifre:  qwerty</h2>
+
+
+
+
+
+
 
 </body>
 </html>

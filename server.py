@@ -46,8 +46,17 @@ def get_elephantsql_dsn(vcap_services):
 @app.route('/')
 @app.route('/home')
 def home_page():
+    matches = []
+    with dbapi2.connect(current_app.config["dsn"]) as connection:
+        cursor = connection.cursor()
+        query = """ SELECT id, matchTime, matchDate,(SELECT teamName FROM teams WHERE id=homeTeamId), homeTeamScore,(SELECT teamName FROM teams WHERE id=guestTeam), guestTamScore, result FROM match WHERE matchDate ='22/11/2017' AND matchTime > '20:45' """
+        cursor.execute(query, [id])
+        for match in cursor:
+            matches.append(match)
+        connection.commit()
+
     now = datetime.datetime.now()
-    return render_template('home.html', current_time=now.ctime())
+    return render_template('home.html', current_time=now.ctime(), matches=matches)
 
 @app.route('/initdb')
 def initialize_database():
@@ -101,7 +110,14 @@ def login():
 
 @app.route('/profile', methods=['GET','POST'])
 def profile():
-
+    matches = []
+    with dbapi2.connect(current_app.config["dsn"]) as connection:
+        cursor = connection.cursor()
+        query = """ SELECT id, matchTime, matchDate,(SELECT teamName FROM teams WHERE id=homeTeamId), homeTeamScore,(SELECT teamName FROM teams WHERE id=guestTeam), guestTamScore, result FROM match WHERE matchDate ='22/11/2017' AND matchTime > '20:45' """
+        cursor.execute(query, [id])
+        for match in cursor:
+            matches.append(match)
+        connection.commit()
 
 
     if request.method == 'POST':
@@ -123,7 +139,7 @@ def profile():
                 session['email'] = result[3]
 
                 filename = '{role}/profile.html'.format(role = session['role'])
-                return render_template(filename)
+                return render_template(filename, matches = matches)
 
     elif request.method == 'GET':
         session['role'] = ""
@@ -132,8 +148,7 @@ def profile():
         session['surname'] = ""
         session['email'] = ""
 
-        filename = 'home.html'
-        return render_template(filename)
+        return redirect(url_for('home_page'))
 
     return '<!DOCTYPE html><html><body><h1>Hatali e-posta ya da şifre</h1></body></html>'
 
@@ -574,10 +589,149 @@ def wagerTableUpdate(id):
     filename = 'admin/wager_update.html'
     return render_template(filename, wagers = wagers)
 
+@app.route('/canliSkor', methods=['GET','POST'])
+def canliSkor():
+    matches = []
+    with dbapi2.connect(current_app.config["dsn"]) as connection:
+        cursor = connection.cursor()
+        query = """ SELECT id, matchTime, matchDate,(SELECT teamName FROM teams WHERE id=homeTeamId), homeTeamScore,(SELECT teamName FROM teams WHERE id=guestTeam), guestTamScore, result FROM match WHERE matchTime < '21:45' AND matchDate = '22/11/2017' """
+        cursor.execute(query, [id])
+        for match in cursor:
+            matches.append(match)
+        connection.commit()
+
+    ms = []
+    with dbapi2.connect(current_app.config["dsn"]) as connection:
+        cursor = connection.cursor()
+        query = """ SELECT id, matchTime, matchDate,(SELECT teamName FROM teams WHERE id=homeTeamId), homeTeamScore,(SELECT teamName FROM teams WHERE id=guestTeam), guestTamScore, result FROM match WHERE matchDate = '21/11/2017' """
+        cursor.execute(query, [id])
+        for m in cursor:
+            ms.append(m)
+        connection.commit()
+
+
+    filename = 'user/canliSkor.html'
+    return render_template(filename, matches = matches, ms = ms)
+
+@app.route('/wager', methods=['GET', 'POST'])
+def wager():
+
+    matches = []
+    with dbapi2.connect(current_app.config["dsn"]) as connection:
+        cursor = connection.cursor()
+        query = """ SELECT id, matchTime, matchDate,(SELECT teamName FROM teams WHERE id=homeTeamId), homeTeamScore,(SELECT teamName FROM teams WHERE id=guestTeam), guestTamScore, result FROM match WHERE matchDate ='22/11/2017' AND matchTime > '20:45' """
+        cursor.execute(query, [id])
+        for match in cursor:
+            matches.append(match)
+        connection.commit()
+
+    filename = 'user/wager.html'
+    return render_template(filename, matches = matches)
+
+@app.route('/wagerdo/<int:id>', methods=['GET', 'POST'])
+def wagerdo(id):
+
+    if request.method == 'POST':
+        userExpect = request.form['userExpect']
+        userId =session['id']
+
+        with dbapi2.connect(current_app.config["dsn"]) as connection:
+           cursor = connection.cursor()
+           query = """INSERT INTO wager (matchId, userExpect, userId) VALUES ( %s, %s, %s) """
+           cursor.execute(query, (id, userExpect, userId))
+           connection.commit()
+
+    filename = 'user/wagerdo.html'
+    return render_template(filename)
+
+
+@app.route('/almanyaligi', methods=['GET', 'POST'])
+def almanyaligi():
+    leaguePositions = []
+    with dbapi2.connect(current_app.config["dsn"]) as connection:
+        cursor = connection.cursor()
+        query = """ SELECT leaguePosition.id, (SELECT leagues.leagueName FROM leagues WHERE id = leaguePosition.leagueName),
+                    (SELECT teams.teamName FROM teams WHERE id = leaguePosition.teamName), leaguePosition.oynanan, leaguePosition.galibiyet,
+                    leaguePosition.beraberlik, leaguePosition.yenilgi, leaguePosition.atilanGol, yenilenGol, puan,
+                    (SELECT leagues.country FROM leagues WHERE id = leaguePosition.country) FROM leaguePosition WHERE leaguePosition.leagueName = 4;"""
+        cursor.execute(query)
+        for leaguePositio in cursor:
+            leaguePositions.append(leaguePositio)
+        connection.commit()
+
+    filename = 'user/almanyaligi.html'
+    return render_template(filename, leaguePositions = leaguePositions)
 
 
 
 
+@app.route('/sportoto', methods=['GET', 'POST'])
+def turkcellsuperlig():
+    leaguePositions = []
+    with dbapi2.connect(current_app.config["dsn"]) as connection:
+        cursor = connection.cursor()
+        query = """ SELECT leaguePosition.id, (SELECT leagues.leagueName FROM leagues WHERE id = leaguePosition.leagueName),
+                    (SELECT teams.teamName FROM teams WHERE id = leaguePosition.teamName), leaguePosition.oynanan, leaguePosition.galibiyet,
+                    leaguePosition.beraberlik, leaguePosition.yenilgi, leaguePosition.atilanGol, yenilenGol, puan,
+                    (SELECT leagues.country FROM leagues WHERE id = leaguePosition.country) FROM leaguePosition WHERE leaguePosition.leagueName = 3;"""
+        cursor.execute(query)
+        for leaguePositio in cursor:
+            leaguePositions.append(leaguePositio)
+        connection.commit()
+
+    filename = 'user/turkcellsuperlig.html'
+    return render_template(filename, leaguePositions = leaguePositions)
+
+@app.route('/premierlig', methods=['GET', 'POST'])
+def premierlig():
+    leaguePositions = []
+    with dbapi2.connect(current_app.config["dsn"]) as connection:
+        cursor = connection.cursor()
+        query = """ SELECT leaguePosition.id, (SELECT leagues.leagueName FROM leagues WHERE id = leaguePosition.leagueName),
+                    (SELECT teams.teamName FROM teams WHERE id = leaguePosition.teamName), leaguePosition.oynanan, leaguePosition.galibiyet,
+                    leaguePosition.beraberlik, leaguePosition.yenilgi, leaguePosition.atilanGol, yenilenGol, puan,
+                    (SELECT leagues.country FROM leagues WHERE id = leaguePosition.country) FROM leaguePosition WHERE leaguePosition.leagueName = 2;"""
+        cursor.execute(query)
+        for leaguePositio in cursor:
+            leaguePositions.append(leaguePositio)
+        connection.commit()
+
+    filename = 'user/premierlig.html'
+    return render_template(filename, leaguePositions = leaguePositions)
+
+@app.route('/laliga', methods=['GET', 'POST'])
+def laliga():
+    leaguePositions = []
+    with dbapi2.connect(current_app.config["dsn"]) as connection:
+        cursor = connection.cursor()
+        query = """ SELECT leaguePosition.id, (SELECT leagues.leagueName FROM leagues WHERE id = leaguePosition.leagueName),
+                    (SELECT teams.teamName FROM teams WHERE id = leaguePosition.teamName), leaguePosition.oynanan, leaguePosition.galibiyet,
+                    leaguePosition.beraberlik, leaguePosition.yenilgi, leaguePosition.atilanGol, yenilenGol, puan,
+                    (SELECT leagues.country FROM leagues WHERE id = leaguePosition.country) FROM leaguePosition WHERE leaguePosition.leagueName = 1;"""
+        cursor.execute(query)
+        for leaguePositio in cursor:
+            leaguePositions.append(leaguePositio)
+        connection.commit()
+
+    filename = 'user/laliga.html'
+    return render_template(filename, leaguePositions = leaguePositions)
+
+@app.route('/ligue', methods=['GET', 'POST'])
+def ligue():
+    leaguePositions = []
+    with dbapi2.connect(current_app.config["dsn"]) as connection:
+        cursor = connection.cursor()
+        query = """ SELECT leaguePosition.id, (SELECT leagues.leagueName FROM leagues WHERE id = leaguePosition.leagueName),
+                    (SELECT teams.teamName FROM teams WHERE id = leaguePosition.teamName), leaguePosition.oynanan, leaguePosition.galibiyet,
+                    leaguePosition.beraberlik, leaguePosition.yenilgi, leaguePosition.atilanGol, yenilenGol, puan,
+                    (SELECT leagues.country FROM leagues WHERE id = leaguePosition.country) FROM leaguePosition WHERE leaguePosition.leagueName = 5;"""
+        cursor.execute(query)
+        for leaguePositio in cursor:
+            leaguePositions.append(leaguePositio)
+        connection.commit()
+
+    filename = 'user/ligue.html'
+    return render_template(filename, leaguePositions = leaguePositions)
 
 
 

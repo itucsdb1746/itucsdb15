@@ -9,6 +9,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel='icon' href='static/favicon.ico' type='image/x-icon' >
   <link rel="stylesheet" href="static/css/divide.css" type="text/css">
+  <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
 
@@ -19,14 +20,14 @@
     </div>
     <ul class="nav navbar-nav">
       <li><a href="#"><span class="glyphicon glyphicon-home"></span> Anasayfa </a></li>
-      <li><a href="#">Canlı sonuçlar</a></li>
+      <li><a href="#" onclick="location.href = '{{ url_for('canliSkor') }}'">Canlı sonuçlar</a></li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Ligler <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Almanya Ligi</a></li>
-          <li><a href="#">Turkcell Süperlig</a></li>
-          <li><a href="#">Premier Lig</a></li>
-          <li><a href="#">İspanya Ligi</a></li>
-          <li><a href="#">Fransa Ligi</a></li>
+          <li><a href="#" onclick="location.href = '{{ url_for('almanyaligi') }}'">Almanya Ligi</a></li>
+          <li><a href="#" onclick="location.href = '{{ url_for('turkcellsuperlig') }}'">Spor Toto Süperlig</a></li>
+          <li><a href="#" onclick="location.href = '{{ url_for('premierlig') }}'">Premier Lig</a></li>
+          <li><a href="#" onclick="location.href = '{{ url_for('laliga') }}'">İspanya Ligi</a></li>
+          <li><a href="#" onclick="location.href = '{{ url_for('ligue') }}'">Fransa Ligi</a></li>
         </ul>
       </li>
     </ul>
@@ -47,6 +48,7 @@
   </div>
 </nav>
 
+	{% block content %}{% endblock %}
 
 
 

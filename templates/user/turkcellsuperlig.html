@@ -1,0 +1,66 @@
+{% extends "user/layout.html"%}
+{% block title %}Profil{% endblock %}
+{% block content %}
+
+
+<head>
+  <meta charset = "utf-8">
+
+</head>
+
+
+
+
+
+<div class="row">
+    <div class="panel panel-primary">
+
+      <div class="panel-heading">
+          <h1 class="panel-title">Canlı Maç Bilgileri</h1>
+      </div>
+
+      <div class="panel-body">
+        <table class="table">
+          <tbody>
+            <tr class = "info">
+              <th> lig </th>
+              <th> takım </th>
+              <th> oynanan </th>
+              <th> galibiyet </th>
+              <th> beraberlik </th>
+              <th> yenilgi </th>
+              <th> Atılan Gol </th>
+              <th> Yenilen Gol </th>
+              <th> Puan </th>
+              <th> ülke </th>
+            </tr>
+
+            {% for id,leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country in leaguePositions%}
+            <tr>
+              <input class ="hidden" name ="islem" value ="{{ id }}" />
+              <td> {{ leagueName }} </td>
+              <td> {{ teamName }} </td>
+              <td> {{ oynanan }} </td>
+              <td> {{ galibiyet }} </td>
+              <td> {{ beraberlik }} </td>
+              <td> {{ yenilgi }} </td>
+              <td> {{ atilanGol }} </td>
+              <td> {{ yenilenGol }} </td>
+              <td> {{ puan }} </td>
+              <td> {{ country }} </td>
+            </tr>
+            {% endfor %}
+
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+<!-- 	</div> -->
+</div>
+
+
+
+
+
+ {% endblock %}

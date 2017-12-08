@@ -1,0 +1,59 @@
+{% extends "user/layout.html"%}
+{% block title %}Profil{% endblock %}
+{% block content %}
+
+
+<head>
+  <meta charset = "utf-8">
+
+</head>
+
+
+
+
+
+<div class="row">
+    <div class="panel panel-primary">
+
+      <div class="panel-heading">
+          <h1 class="panel-title">Canlı Maç Bilgileri</h1>
+      </div>
+
+      <div class="panel-body">
+        <table class="table">
+          <tbody>
+            <tr class = "info">
+              <th> Saat </th>
+              <th> Tarih </th>
+              <th> Ev Sahibi </th>
+              <th> Ev Skor </th>
+              <th> Deplasman Skor </th>
+              <th> Deplasman </th>
+              <th> Bahis Yap </th>
+            </tr>
+
+            {% for id, matchTime, matchDate, homeTeamId, homeTeamScore, guestTeam, guestTamScore, result in matches%}
+            <tr>
+              <input class ="hidden" name ="matchId" value ="{{ id }}" />
+              <td> {{ matchTime }} </td>
+              <td> {{ matchDate }} </td>
+              <td> {{ homeTeamId }} </td>
+              <td> {{ homeTeamScore }} </td>
+              <td> {{ guestTamScore }} </td>
+              <td> {{ guestTeam }} </td>
+              <td><button onclick="location.href = '{{ url_for('wagerdo', id=id) }}'"  type ="submit" form ="AddWager" class = "btn btn-primary" value = "Submit">Seç  </button></td>
+            </tr>
+            {% endfor %}
+
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+<!-- 	</div> -->
+</div>
+
+
+
+
+ {% endblock %}
