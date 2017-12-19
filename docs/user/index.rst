@@ -1,22 +1,21 @@
-User Guide
-==========
+Kullanıcı Kılavuzu
+==================
 
-**explain how your application works from the user perspective, use
-screenshots whereever appropriate**
+**BeeT Uygulaması**
 
-**to add a picture, use the following example**::
+BeeT uygulaması ligler, maçlar, kullanıcılar ve kullanıcıların yaptığı bahis bilgilerini tutan bir uygulamadır. Siteye giriş
+yapmak veya kayıt olmak için anasayfada bulunan "Giriş" veya "Kayıt ol" butonları kullanılmalıdır. Siteye giriş aslında iki
+farklı arayüze açılıyor. Bunlardan biri yönetici diğeri normal kullanıcı. Yönetici olarak siteye kayıt olunamaz ancak bir yönetici
+sizin yetkinizi değiştirebilir.
 
-   .. figure:: picture.png
-      :scale: 50 %
-      :alt: map to buried treasure
 
-      This is the caption of the figure (a simple paragraph).
+   .. figure:: 1-userHome.png
+      :scale: 80 %
+      :alt: Anasayfa
+      :align: center
+
+      Anasayfada sağ üst köşedeki butonlar.
 
 .. toctree::
 
    member1
-   member2
-   member3
-   member4
-   member5
-   

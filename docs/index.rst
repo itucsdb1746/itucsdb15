@@ -1,17 +1,15 @@
-Welcome to itucsdb's documentation!
-===================================
+BeeT's dokümantasyon!
+=====================
 
-:Team: Team Name
+:Team: BeeT
 
 :Members:
 
-   * Member 1
-   * Member 2
-   * Member 3
-   * Member 4
-   * Member 5
+   * Samet Bulut
 
-**project description goes here (a few paragraphs)**
+**BeeT kullanıcılara futbol ligleri, takımları, maçları, bahisleri hakkındaki genel bilgilere ulaşım sağlayan bir web uygulamasıdır.**
+
+
 
 Contents:
 
