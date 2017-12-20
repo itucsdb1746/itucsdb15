@@ -176,6 +176,7 @@ Lig silme:
 Lig silme tamamlanmıştır.
 
 Lig Durumu silme:
+   .. code-block:: python
       with dbapi2.connect(current_app.config["dsn"]) as connection:
          cursor = connection.cursor()
          cursor.execute(" DELETE  FROM leagueposition WHERE id = %s ", [id])
@@ -185,6 +186,7 @@ Lig Durumu silme tamamlanmıştır.
 
 
 Bahis silme:
+   .. code-block:: python
       with dbapi2.connect(current_app.config["dsn"]) as connection:
          cursor = connection.cursor()
          cursor.execute(" DELETE  FROM wager WHERE id = %s ", [id])
@@ -198,6 +200,7 @@ Güncelleme
 Veritabanında güncelleme operasyonları "server.py" da bulunur ve id değerlerini htmldeki request içinde gönderiyoruz.
 Kullanıcı güncelleme:
 Değerleri güncelleme yetkisine sahip kullanıcıdan alır.
+   .. code-block:: python
       if request.method =='POST':
         userName = request.form['userName']
         userSurname = request.form['userSurname']
@@ -207,6 +210,7 @@ Değerleri güncelleme yetkisine sahip kullanıcıdan alır.
         role = request.form['role']
 
 Bu değerleri aşağıdaki yapı ile veritabanına işler.
+   .. code-block:: python
       with dbapi2.connect(current_app.config['dsn']) as connection:
          cursor = connection.cursor()
          query = """ UPDATE users  SET userName=%s, userSurname=%s, userEmail=%s, password=%s, userBalance=%s, role=%s WHERE (id =%s)"""
@@ -216,6 +220,7 @@ Bu değerleri aşağıdaki yapı ile veritabanına işler.
 
 Maç güncelleme:
 Değerleri güncelleme yetkisine sahip kullanıcıdan alır.
+   .. code-block:: python
       if request.method =='POST':
         matchTime = request.form['matchTime']
         matchDate = request.form['matchDate']
@@ -226,6 +231,7 @@ Değerleri güncelleme yetkisine sahip kullanıcıdan alır.
         result = request.form['result']
 
 Bu değerleri aşağıdaki yapı ile veritabanına işler.
+   .. code-block:: python
       with dbapi2.connect(current_app.config['dsn']) as connection:
          cursor = connection.cursor()
          query = """ UPDATE match  SET matchTime=%s, matchDate=%s, hometeamid=%s, hometeamScore=%s, guestteam=%s, guesttamscore=%s, result=%s WHERE (id =%s)"""
@@ -235,6 +241,7 @@ Bu değerleri aşağıdaki yapı ile veritabanına işler.
 
 Takım güncelleme:
 Değerleri güncelleme yetkisine sahip kullanıcıdan alır.
+   .. code-block:: python
       if request.method =='POST':
         teamName = request.form['teamName']
         teamleague = request.form['teamleague']
@@ -243,6 +250,7 @@ Değerleri güncelleme yetkisine sahip kullanıcıdan alır.
         teamcountry = request.form['teamcountry']
 
 Bu değerleri aşağıdaki yapı ile veritabanına işler.
+   .. code-block:: python
       with dbapi2.connect(current_app.config['dsn']) as connection:
          cursor = connection.cursor()
          query = """ UPDATE teams  SET teamName=%s, teamleague=%s, teamchampionsleague=%s, teamuefaleague=%s, teamcountry=%s WHERE (id =%s)"""
@@ -252,11 +260,13 @@ Bu değerleri aşağıdaki yapı ile veritabanına işler.
 
 Lig güncelleme:
 Değerleri güncelleme yetkisine sahip kullanıcıdan alır.
+   .. code-block:: python
       if request.method =='POST':
         leagueName = request.form['leagueName']
         country = request.form['country']
 
 Bu değerleri aşağıdaki yapı ile veritabanına işler.
+   .. code-block:: python
       with dbapi2.connect(current_app.config['dsn']) as connection:
          cursor = connection.cursor()
          query = """ UPDATE leagues  SET leagueName=%s, country=%s WHERE (id =%s)"""
@@ -266,6 +276,7 @@ Bu değerleri aşağıdaki yapı ile veritabanına işler.
 
 Lig Durumu güncelleme:
 Değerleri güncelleme yetkisine sahip kullanıcıdan alır.
+   .. code-block:: python
       if request.method == 'POST':
         leagueName = request.form['leagueName']
         teamName = request.form['teamName']
@@ -279,6 +290,7 @@ Değerleri güncelleme yetkisine sahip kullanıcıdan alır.
         country = request.form['country']
 
 Bu değerleri aşağıdaki yapı ile veritabanına işler.
+   .. code-block:: python
       with dbapi2.connect(current_app.config['dsn']) as connection:
          cursor = connection.cursor()
          query = """INSERT INTO leaguePosition (leagueName, teamName, oynanan, galibiyet, beraberlik, yenilgi, atilanGol, yenilenGol, puan, country) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s) """
@@ -288,6 +300,7 @@ Bu değerleri aşağıdaki yapı ile veritabanına işler.
 
 Bahis güncelleme:
 Değerleri güncelleme yetkisine sahip kullanıcıdan alır.
+   .. code-block:: python
       if request.method =='POST':
         matchId = request.form['matchId']
         userExpect = request.form['userExpect']
