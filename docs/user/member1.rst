@@ -10,6 +10,9 @@ Kayıt Olma Sayfası
 Kayıt ol butonu ile gelinen bu sayfada gerekli bilgiler girilerek kayıt tamamlanır. Bu bilgilerde dikkat edilmesi gereken her kullanıcının e-maili
 eşsiz olmalıdır.
 
+   .. figure:: 2-signUp.png
+      :scale: 80 %
+      :align: left
 
 Giriş Sayfası
 ^^^^^^^^^^^^^
