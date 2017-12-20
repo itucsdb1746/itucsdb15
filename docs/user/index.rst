@@ -12,7 +12,7 @@ sizin yetkinizi değiştirebilir.
    .. figure:: 1-userHome.png
       :scale: 100 %
       :alt: Anasayfa
-      :align: center
+      :align: bottom
 
       Anasayfada sağ üst köşedeki butonlar.
 
