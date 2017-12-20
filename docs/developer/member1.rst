@@ -359,7 +359,6 @@ Bu değerleri aşağıdaki yapı ile veritabanına işler.
 
       with dbapi2.connect(current_app.config['dsn']) as connection:
          cursor = connection.cursor()
-
          query = """ UPDATE wager  SET matchId=%s,userExpect=%s, wagerValue=%s, wagerWin=%s, userId=%s WHERE (id =%s)"""
 
          cursor.execute(query, (matchId,userExpect, wagerValue, wagerWin, userId, id))
