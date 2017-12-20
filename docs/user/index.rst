@@ -10,7 +10,7 @@ sizin yetkinizi değiştirebilir.
 
 
    .. figure:: 1-userHome.png
-      :scale: 80 %
+      :scale: 100 %
       :alt: Anasayfa
       :align: center
 
