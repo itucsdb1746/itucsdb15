@@ -82,12 +82,14 @@ Lig ekleme:
 
 Değerleri ekleme yetkisine sahip kullanıcıdan alır.
    .. code-block:: python
+
       if request.method == 'POST':
         leagueName = request.form['leagueName']
         country = request.form['country']
 
 Bu değerleri aşağıdaki yapı ile veritabanına işler.
    .. code-block:: python
+
       with dbapi2.connect(current_app.config['dsn']) as connection:
          cursor = connection.cursor()
          query = """INSERT INTO leagues (leagueName, country) VALUES (%s, %s) """
@@ -140,6 +142,7 @@ Değerleri ekleme yetkisine sahip kullanıcıdan alır.
 
 Bu değerleri aşağıdaki yapı ile veritabanına işler.
    .. code-block:: python
+
       with dbapi2.connect(current_app.config['dsn']) as connection:
          cursor = connection.cursor()
          query = """INSERT INTO wager (matchId, userExpect, wagerValue, wagerWin, userId) VALUES (%s, %s, %s, %s, %s) """
@@ -165,6 +168,7 @@ Kullanıcı silme tamamlanmıştır.
 
 Maç silme:
    .. code-block:: python
+
       with dbapi2.connect(current_app.config["dsn"]) as connection:
          cursor = connection.cursor()
          cursor.execute(" DELETE  FROM match WHERE id = %s ", [id])
@@ -224,6 +228,7 @@ Kullanıcı güncelleme:
 
 Değerleri güncelleme yetkisine sahip kullanıcıdan alır.
    .. code-block:: python
+
       if request.method =='POST':
         userName = request.form['userName']
         userSurname = request.form['userSurname']
@@ -270,6 +275,7 @@ Takım güncelleme:
 
 Değerleri güncelleme yetkisine sahip kullanıcıdan alır.
    .. code-block:: python
+
       if request.method =='POST':
         teamName = request.form['teamName']
         teamleague = request.form['teamleague']
