@@ -3,20 +3,21 @@ Samet Bulut'un yazdığı kısım
 
 Kayıt Olma Sayfası
 ^^^^^^^^^^^^^^^^^^
+Kayıt ol butonu ile gelinen bu sayfada gerekli bilgiler girilerek kayıt tamamlanır. Bu bilgilerde dikkat edilmesi gereken her kullanıcının e-maili
+eşsiz olmalıdır.
+
    .. figure:: 2-signUp.png
       :scale: 80 %
       :align: left
 
-Kayıt ol butonu ile gelinen bu sayfada gerekli bilgiler girilerek kayıt tamamlanır. Bu bilgilerde dikkat edilmesi gereken her kullanıcının e-maili
-eşsiz olmalıdır.
-
 Giriş Sayfası
 ^^^^^^^^^^^^^
+Giriş butonu ile gelinen bu sayfada e-mail ve şifre ile giriş yapılır.
+
    .. figure:: 3-login.png
       :scale: 80 %
       :align: left
 
-Giriş butonu ile gelinen bu sayfada e-mail ve şifre ile giriş yapılır.
 
 Yönetici Olarak
 ===============
@@ -24,12 +25,13 @@ Yönetici Olarak
 Anasayfa
 ^^^^^^^^
 
+Yönetici girişi yapıldıktan sonra gelen bu anasayfadan tablolar seçeneğini altında bulunan linkler ile kulanıcılar, takımlar, maçlar, ligler,
+lig durumu ve bahisler olarak veritabanında kayıtlı verilere erişilebilir.
+
    .. figure:: 4-adminHome.png
       :scale: 80 %
       :align: left
 
-Yönetici girişi yapıldıktan sonra gelen bu anasayfadan tablolar seçeneğini altında bulunan linkler ile kulanıcılar, takımlar, maçlar, ligler,
-lig durumu ve bahisler olarak veritabanında kayıtlı verilere erişilebilir.
 
 Kullanıcı Sayfası
 ^^^^^^^^^^^^^^^^^

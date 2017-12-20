@@ -10,7 +10,7 @@ Geliştirici Kılavuzu
 
 Veritabanındaki tablolar arası bağıntılar Er diagramda gösterilmiştir. Veritabanı "initialize_db.py" da tanımlanıp bazı değerler atanmıştır.
 
-**initialize_db.py örnek kod**::
+**initialize_db.py örnek kod**
    .. code-block:: python
 
       cursor.execute("""DROP TABLE IF EXISTS COUNTER""")

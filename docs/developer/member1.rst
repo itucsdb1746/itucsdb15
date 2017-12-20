@@ -4,7 +4,7 @@ Ekleme
 Veritabanına ekleme operasyonları "server.py" da bulunur.
 
 Kullanıcı ekleme:
-Değerleri ekleme yetkisine sahip kullanıcıdan alır.::
+Değerleri ekleme yetkisine sahip kullanıcıdan alır.
    .. code-block:: python
       if request.method == 'POST':
         userName = request.form['userName']
@@ -14,7 +14,7 @@ Değerleri ekleme yetkisine sahip kullanıcıdan alır.::
         userBalance = request.form['userBalance']
         userRole = request.form['userRole']
 
-Bu değerleri aşağıdaki yapı ile veritabanına işler.::
+Bu değerleri aşağıdaki yapı ile veritabanına işler.
       .. code-block:: python
          with dbapi2.connect(current_app.config['dsn']) as connection:
             cursor = connection.cursor()
@@ -26,7 +26,7 @@ Bu değerleri aşağıdaki yapı ile veritabanına işler.::
 Kullanıcı ekleme operasyonu bitmiş olur.
 
 Maç ekleme:
-Değerleri ekleme yetkisine sahip kullanıcıdan alır.::
+Değerleri ekleme yetkisine sahip kullanıcıdan alır.
    .. code-block:: python
       if request.method == 'POST':
         matchTime = request.form['matchTime']
@@ -37,7 +37,7 @@ Değerleri ekleme yetkisine sahip kullanıcıdan alır.::
         guestTamScore = request.form['guestTamScore']
         result = request.form['result']
 
-Bu değerleri aşağıdaki yapı ile veritabanına işler.::
+Bu değerleri aşağıdaki yapı ile veritabanına işler.
       .. code-block:: python
          with dbapi2.connect(current_app.config['dsn']) as connection:
             cursor = connection.cursor()
@@ -49,7 +49,7 @@ Bu değerleri aşağıdaki yapı ile veritabanına işler.::
 Maç ekleme operasyonu bitmiş olur.
 
 Takım ekleme:
-Değerleri ekleme yetkisine sahip kullanıcıdan alır.::
+Değerleri ekleme yetkisine sahip kullanıcıdan alır.
    .. code-block:: python
       if request.method == 'POST':
         teamName = request.form['teamName']
@@ -58,7 +58,7 @@ Değerleri ekleme yetkisine sahip kullanıcıdan alır.::
         teamUefaLeague = request.form['teamUefaLeague']
         teamCountry = request.form['teamCountry']
 
-Bu değerleri aşağıdaki yapı ile veritabanına işler.::
+Bu değerleri aşağıdaki yapı ile veritabanına işler.
       .. code-block:: python
          with dbapi2.connect(current_app.config['dsn']) as connection:
             cursor = connection.cursor()
@@ -70,13 +70,13 @@ Bu değerleri aşağıdaki yapı ile veritabanına işler.::
 Takım ekleme operasyonu bitmiş olur.
 
 Lig ekleme:
-Değerleri ekleme yetkisine sahip kullanıcıdan alır.::
+Değerleri ekleme yetkisine sahip kullanıcıdan alır.
    .. code-block:: python
       if request.method == 'POST':
         leagueName = request.form['leagueName']
         country = request.form['country']
 
-Bu değerleri aşağıdaki yapı ile veritabanına işler.::
+Bu değerleri aşağıdaki yapı ile veritabanına işler.
       .. code-block:: python
          with dbapi2.connect(current_app.config['dsn']) as connection:
             cursor = connection.cursor()
@@ -88,7 +88,7 @@ Bu değerleri aşağıdaki yapı ile veritabanına işler.::
 Lig ekleme operasyonu bitmiş olur.
 
 Lig Durumu ekleme:
-Değerleri ekleme yetkisine sahip kullanıcıdan alır.::
+Değerleri ekleme yetkisine sahip kullanıcıdan alır.
    .. code-block:: python
       if request.method == 'POST':
         leagueName = request.form['leagueName']
@@ -102,7 +102,7 @@ Değerleri ekleme yetkisine sahip kullanıcıdan alır.::
         puan = request.form['puan']
         country = request.form['country']
 
-Bu değerleri aşağıdaki yapı ile veritabanına işler.::
+Bu değerleri aşağıdaki yapı ile veritabanına işler.
       .. code-block:: python
          with dbapi2.connect(current_app.config['dsn']) as connection:
             cursor = connection.cursor()
@@ -114,7 +114,7 @@ Bu değerleri aşağıdaki yapı ile veritabanına işler.::
 Lig Durumu ekleme operasyonu bitmiş olur.
 
 Bahis ekleme:
-Değerleri ekleme yetkisine sahip kullanıcıdan alır.::
+Değerleri ekleme yetkisine sahip kullanıcıdan alır.
    .. code-block:: python
       if request.method == 'POST':
         matchId = request.form['matchId']
@@ -123,7 +123,7 @@ Değerleri ekleme yetkisine sahip kullanıcıdan alır.::
         wagerWin = request.form['wagerWin']
         userId = request.form['userId']
 
-Bu değerleri aşağıdaki yapı ile veritabanına işler.::
+Bu değerleri aşağıdaki yapı ile veritabanına işler.
       .. code-block:: python
          with dbapi2.connect(current_app.config['dsn']) as connection:
             cursor = connection.cursor()

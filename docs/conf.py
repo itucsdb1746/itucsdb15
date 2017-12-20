@@ -197,7 +197,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', 'BeeT.tex', 'BeeT Dokümantasyon',
+  ('index', 'BeeT.tex', 'BeeT Dokumantasyon',
    'BeeT', 'manual'),
 ]
 
@@ -227,7 +227,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'BeeT', 'BeeT Dokümantasyon',
+    ('index', 'BeeT', 'BeeT Dokumantasyon',
      ['BeeT'], 1)
 ]
 
@@ -241,8 +241,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'BeeT', 'BeeT Dokümantasyon',
-   'BeeT', 'BeeT', 'Futbol için takımlar, maçlar, lig durumları bilgilerini içeren veritabanı projesi.',
+  ('index', 'BeeT', 'BeeT Dokumantasyon',
+   'BeeT', 'BeeT', 'Futbol icin takimlar, maclar, lig durumlari bilgilerini iceren veritabani projesi.',
    'Miscellaneous'),
 ]
 
