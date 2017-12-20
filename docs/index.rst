@@ -11,7 +11,6 @@ BeeT's dokümantasyon!
 
 
 
-Contents:
 
 .. toctree::
    :maxdepth: 1
