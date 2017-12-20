@@ -6,31 +6,24 @@ Veritabanına ekleme operasyonları "server.py" da bulunur.
 Kullanıcı ekleme:
 
 Değerleri ekleme yetkisine sahip kullanıcıdan alır.
-
+   .. code-block:: python
+   
    if request.method == 'POST':
       userName = request.form['userName']
-
-      userSurname = request.form['userSurname']
-      
+      userSurname = request.form['userSurname']      
       userEmail = request.form['userEmail']
-      
       userPassword = request.form['userPassword']
-      
       userBalance = request.form['userBalance']
-      
       userRole = request.form['userRole']
 
 Bu değerleri aşağıdaki yapı ile veritabanına işler.
+   .. code-block:: python
 
    with dbapi2.connect(current_app.config['dsn']) as connection:
          cursor = connection.cursor()
-         
          query = """INSERT INTO users (userName, userSurname, userEmail, Password, userBalance, role) VALUES (%s, %s, %s, %s, %s, %s) """
-         
          cursor.execute(query, (userName, userSurname, userEmail, userPassword, userBalance, userRole))
-         
          connection.commit()
-         
          return redirect(url_for('userTable'))
 
 Kullanıcı ekleme operasyonu bitmiş olur.
@@ -38,20 +31,15 @@ Kullanıcı ekleme operasyonu bitmiş olur.
 Maç ekleme:
 
 Değerleri ekleme yetkisine sahip kullanıcıdan alır.
-
+   .. code-block:: python
+   
    if request.method == 'POST':
         matchTime = request.form['matchTime']
-        
         matchDate = request.form['matchDate']
-        
         homeTeamId = request.form['homeTeamId']
-        
         homeTeamScore = request.form['homeTeamScore']
-        
         guestTeam = request.form['guestTeam']
-        
         guestTamScore = request.form['guestTamScore']
-        
         result = request.form['result']
 
 Bu değerleri aşağıdaki yapı ile veritabanına işler.
