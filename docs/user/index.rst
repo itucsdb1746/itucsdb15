@@ -14,8 +14,7 @@ sizin yetkinizi değiştirebilir.
       :alt: Anasayfa
       :align: center
 
-      Anasayfada sağ üst köşedeki butonlar.
-
+     
 .. toctree::
 
    member1
