@@ -8,14 +8,14 @@ yapmak veya kayıt olmak için anasayfada bulunan "Giriş" veya "Kayıt ol" buto
 farklı arayüze açılıyor. Bunlardan biri yönetici diğeri normal kullanıcı. Yönetici olarak siteye kayıt olunamaz ancak bir yönetici
 sizin yetkinizi değiştirebilir.
 
-fsdfsdf
+
 
   .. figure:: 1-userHome.png
       :scale: 80 %
       :align: left
       :alt: map to buried treasure
       
-      asasdsa
+    
 
     
 .. toctree::
