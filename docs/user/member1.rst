@@ -2,7 +2,7 @@
 Samet Bulut'un yazdığı kısım
 ============================
 
-Kayıt Olma Sayfası
+Üye Olma Sayfası
 ^^^^^^^^^^^^^^^^^^
 
 
