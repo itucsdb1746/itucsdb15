@@ -5,19 +5,15 @@ Samet Bulut'un yazdığı kısım
 Kayıt Olma Sayfası
 ^^^^^^^^^^^^^^^^^^
 
-
 Üye ol butonu ile gelinen bu sayfada gerekli bilgiler girilerek kayıt tamamlanır. Bu bilgilerde dikkat edilmesi gereken her kullanıcının e-maili eşsiz olmalıdır.
    
-
-
-
 Giriş Sayfası
 ^^^^^^^^^^^^^
 Giriş butonu ile gelinen bu sayfada e-mail ve şifre ile giriş yapılır.
 
    .. figure:: 3-login.png
       :scale: 80 %
-      :align: left
+      :align: center
 
 
 Yönetici Olarak
