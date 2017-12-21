@@ -1,11 +1,8 @@
 Samet Bulut'un yazdığı kısım
 ============================
-
 Kayıt Olma Sayfası
 ^^^^^^^^^^^^^^^^^^
-   
-Kayıt ol butonu ile gelinen bu sayfada gerekli bilgiler girilerek kayıt tamamlanır. Bu bilgilerde dikkat edilmesi gereken her kullanıcının e-maili
-eşsiz olmalıdır.
+ Kayıt ol butonu ile gelinen bu sayfada gerekli bilgiler girilerek kayıt tamamlanır. Bu bilgilerde dikkat edilmesi gereken her kullanıcının e-maili eşsiz olmalıdır.
 
 Giriş Sayfası
 ^^^^^^^^^^^^^
@@ -35,8 +32,7 @@ Kullanıcı Sayfası
       :scale: 80 %
       :align: left
 
-Bu sayfada bulunan üç buton ile veritabanı üzerinde işlem yapılabilir. Sil ve yeni kullanıcı ekle butonları bu sayfada çalışırken düzenle
-butonu yeni sayfaya yönlendirme yapar.
+Bu sayfada bulunan üç buton ile veritabanı üzerinde işlem yapılabilir. Sil ve yeni kullanıcı ekle butonları bu sayfada çalışırken düzenle butonu yeni sayfaya yönlendirme yapar.
 
    .. figure:: 61-userUpdate.png
       :scale: 80 %
@@ -168,7 +164,7 @@ Bahis Sayfası
       :scale: 80 %
       :align: left
 
-Kullanıcı busayfadan maçı seçerek bahisi alttaki açılan sayfada tamamlayabilir.
+Kullanıcı bu sayfadan maçı seçerek bahisi alttaki açılan sayfada tamamlayabilir.
 
    .. figure:: e-bahis.png
       :scale: 80 %
