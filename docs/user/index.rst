@@ -8,25 +8,13 @@ yapmak veya kayıt olmak için anasayfada bulunan "Giriş" veya "Üye ol" butonl
 farklı arayüze açılıyor. Bunlardan biri yönetici diğeri normal kullanıcı. Yönetici olarak siteye kayıt olunamaz ancak bir yönetici
 sizin yetkinizi değiştirebilir.
 
-ff
 
-ssadas
-
-sdsa
-
-dasdas
-
-qwdqw
-
-ddd
-
-ff
 
 
    .. figure:: 1-userHome.png
  
       :scale: 100 %
-      :align: top
+      :align: left
 
 
 
