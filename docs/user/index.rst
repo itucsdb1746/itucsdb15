@@ -11,12 +11,12 @@ farklı arayüze açılıyor. Bunlardan biri yöneticiye ait kısımken diğeri 
 
    .. figure:: 1-userHome.png
  
-      :scale: 100 %
+      :scale: 80 %
       :align: left
 
 
 
-.. centered:: 1.1 Anasayfa sağ üst köşedeki butonlar
+
 
 
 
