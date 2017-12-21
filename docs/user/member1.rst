@@ -1,11 +1,9 @@
 
-
-
 Giriş Sayfası
 ^^^^^^^^^^^^^
    .. figure:: 3-login.png
       :scale: 80 %
-      :align: top
+      :align: left
 
 
 Giriş butonu ile gelinen bu sayfada e-mail ve şifre ile giriş yapılır.
