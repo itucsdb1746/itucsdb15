@@ -8,12 +8,27 @@ yapmak veya kayıt olmak için anasayfada bulunan "Giriş" veya "Üye ol" butonl
 farklı arayüze açılıyor. Bunlardan biri yönetici diğeri normal kullanıcı. Yönetici olarak siteye kayıt olunamaz ancak bir yönetici
 sizin yetkinizi değiştirebilir.
 
-Anasayfa sağ üst köşedeki butonlar
+
 
    .. figure:: 1-userHome.png
+ 
       :scale: 120 %
-      :alt: anasayfa
       :align: centre
+
+
+
+
+.. centered:: 1.1 Anasayfa sağ üst köşedeki butonlar
+
+
+
+Şimdi uygulamamızı daha yakından inceleyelim...
+
+
+
+
+      
+      
 
 
 .. toctree::
