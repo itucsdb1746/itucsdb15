@@ -7,7 +7,7 @@ Kayıt Olma Sayfası
 eşsiz olmalıdır.
    .. figure:: 2-signUp.png
       :scale: 80 %
-      :align: top
+      :alt: map to buried treasure
 
 
 
