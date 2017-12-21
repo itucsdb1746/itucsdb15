@@ -1,5 +1,3 @@
-Samet Bulut'un yazdığı kısım
-============================
 Kayıt Olma Sayfası
 ^^^^^^^^^^^^^^^^^^
  Kayıt ol butonu ile gelinen bu sayfada gerekli bilgiler girilerek kayıt tamamlanır. Bu bilgilerde dikkat edilmesi gereken her kullanıcının e-maili eşsiz olmalıdır.
