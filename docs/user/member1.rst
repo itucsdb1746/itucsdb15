@@ -34,8 +34,7 @@ Anasayfa
       :scale: 80 %
       :align: left
 
-Yönetici girişi yapıldıktan sonra gelen bu anasayfadan tablolar seçeneğini altında bulunan linkler ile kulanıcılar, takımlar, maçlar, ligler,
-lig durumu ve bahisler olarak veritabanında kayıtlı verilere erişilebilir.
+Yönetici girişi yapıldıktan sonra gelen bu anasayfadan tablolar seçeneği altında bulunan linkler ile kulanıcılar, takımlar, maçlar, ligler, lig durumu ve bahisler hakkında veritabanında kayıtlı verilere erişilebilir. Yönetici bu veriler üzerinde değişiklikler yapma hakkına sahiptir. Kullanıcı tablosu, takım tablosu ve maç tablosu en önemli verilere sahiptir.
 
 
 Kullanıcı Sayfası
@@ -81,7 +80,7 @@ Maç Sayfası
       :align: left
 
 Bu sayfada bulunan üç buton ile veritabanı üzerinde işlem yapılabilir. Sil ve yeni maç ekle butonları bu sayfada çalışırken düzenle
-butonu yeni sayfaya yönlendirme yapar.
+butonu yeni sayfaya yönlendirme yapar. Maçlara ait detaylar sürekli değişeceğinden oldukça aktif kullanılan bir tablodur.
 
    .. figure:: 31-matchUpdate.png
       :scale: 80 %
@@ -114,8 +113,7 @@ Lig Durumu Sayfası
       :scale: 80 %
       :align: left
 
-Bu sayfada bulunan üç buton ile veritabanı üzerinde işlem yapılabilir. Sil ve yeni lig durumu ekle butonları bu sayfada çalışırken düzenle
-butonu yeni sayfaya yönlendirme yapar.
+Bu sayfada bulunan üç buton ile veritabanı üzerinde işlem yapılabilir. Sil ve yeni lig durumu ekle butonları bu sayfada çalışırken düzenle butonu yeni sayfaya yönlendirme yapar. Lig durumu değiştikçe güncellemeler gerekecektir.
 
    .. figure:: 51-leaguePositionUpdate.png
       :scale: 80 %
