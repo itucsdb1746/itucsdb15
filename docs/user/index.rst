@@ -22,7 +22,7 @@ sizin yetkinizi değiştirebilir.
 
 
 
-Şimdi uygulamamızı daha yakından inceleyelim...
+
 
 
 
@@ -32,5 +32,4 @@ sizin yetkinizi değiştirebilir.
 
 
 .. toctree::
-    :maxdepth: 1
-   member1
+       member1
