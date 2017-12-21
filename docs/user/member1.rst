@@ -1,17 +1,22 @@
 Kayıt Olma Sayfası
 ^^^^^^^^^^^^^^^^^^
+
  Kayıt ol butonu ile gelinen bu sayfada gerekli bilgiler girilerek kayıt tamamlanır. Bu bilgilerde dikkat edilmesi gereken her kullanıcının e-maili eşsiz olmalıdır.
+
 
 Giriş Sayfası
 ^^^^^^^^^^^^^
    .. figure:: 3-login.png
       :scale: 80 %
-      :align: left
+      :align: top
+
 
 Giriş butonu ile gelinen bu sayfada e-mail ve şifre ile giriş yapılır.
 
+
 Yönetici Olarak
 ===============
+
 
 Anasayfa
 ^^^^^^^^
@@ -23,12 +28,15 @@ Anasayfa
 Yönetici girişi yapıldıktan sonra gelen bu anasayfadan tablolar seçeneğini altında bulunan linkler ile kulanıcılar, takımlar, maçlar, ligler,
 lig durumu ve bahisler olarak veritabanında kayıtlı verilere erişilebilir.
 
+
 Kullanıcı Sayfası
 ^^^^^^^^^^^^^^^^^
+
 
    .. figure:: 60-adminUsers.png
       :scale: 80 %
       :align: left
+
 
 Bu sayfada bulunan üç buton ile veritabanı üzerinde işlem yapılabilir. Sil ve yeni kullanıcı ekle butonları bu sayfada çalışırken düzenle butonu yeni sayfaya yönlendirme yapar.
 
