@@ -1,8 +1,23 @@
+
+B
+
+E
+
+E
+
+t
+
+T
+
 Samet Bulut'un yazdığı kısım
 ============================
 
 Kayıt Olma Sayfası
 ^^^^^^^^^^^^^^^^^^
+.. figure:: 2-signUp.png
+      :scale: 80 %
+      :align: left
+
 Üye ol butonu ile gelinen bu sayfada gerekli bilgiler girilerek kayıt tamamlanır. Bu bilgilerde dikkat edilmesi gereken her kullanıcının e-maili
 eşsiz olmalıdır.
    
