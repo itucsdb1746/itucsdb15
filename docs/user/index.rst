@@ -32,5 +32,5 @@ sizin yetkinizi değiştirebilir.
 
 
 .. toctree::
-    
+    :maxdepth: 1
    member1
